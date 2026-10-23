@@ -4,111 +4,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ID Card Studio</title>
+  <title>ID Card & Certificate Studio</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
   <header>
-    <h1>🪪 ID Card Studio</h1>
-    <p>Create and customize fictional sample ID cards</p>
+    <h1>ID Card & Certificate Studio</h1>
+    <p>Create personalized cards and commemorative certificates</p>
   </header>
 
   <main>
     <section class="editor">
-      <h2>Enter Your Details</h2>
+      <h2>Enter Details</h2>
 
-      <label for="cardType">Card Template</label>
+      <label for="cardType">Document Type</label>
       <select id="cardType">
         <option value="personal">Personal ID</option>
         <option value="employee">Employee ID</option>
         <option value="student">Student ID</option>
         <option value="visitor">Visitor Pass</option>
         <option value="travel">Fictional Travel Card</option>
+        <option value="marriage">Marriage Certificate</option>
       </select>
 
-      <label for="fullName">Full Name</label>
-      <input id="fullName" type="text"
-        placeholder="Enter full name" value="Matthew Orieme">
+      <div id="idFields">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" type="text" placeholder="Enter full name">
 
-      <label for="dob">Date of Birth</label>
-      <input id="dob" type="date" value="1985-11-16">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date">
 
-      <label for="nationality">Nationality</label>
-      <input id="nationality" type="text"
-        placeholder="Enter nationality">
+        <label for="nationality">Nationality</label>
+        <input id="nationality" type="text" placeholder="Enter nationality">
 
-      <label for="idNumber">Reference Number</label>
-      <input id="idNumber" type="text"
-        placeholder="e.g. SAMPLE-001">
+        <label for="idNumber">Reference Number</label>
+        <input id="idNumber" type="text" placeholder="e.g. SAMPLE-001">
 
-      <label for="organization">Organization / School</label>
-      <input id="organization" type="text"
-        placeholder="Optional">
+        <label for="organization">Organization / School</label>
+        <input id="organization" type="text" placeholder="Optional">
 
-      <label for="photo">Upload Photo</label>
-      <input id="photo" type="file" accept="image/*">
+        <label for="photo">Upload Photo</label>
+        <input id="photo" type="file" accept="image/*">
 
-      <label for="theme">Card Colour</label>
-      <select id="theme">
-        <option value="blue">Ocean Blue</option>
-        <option value="green">Emerald Green</option>
-        <option value="purple">Royal Purple</option>
-        <option value="black">Midnight Black</option>
-      </select>
+        <label for="theme">Card Colour</label>
+        <select id="theme">
+          <option value="blue">Ocean Blue</option>
+          <option value="green">Emerald Green</option>
+          <option value="purple">Royal Purple</option>
+          <option value="black">Midnight Black</option>
+        </select>
+      </div>
 
-      <button type="button" id="updateBtn">Update Card</button>
+      <div id="marriageFields" hidden>
+        <label for="partnerOne">First Partner's Full Name</label>
+        <input id="partnerOne" type="text" placeholder="Enter first partner's name">
+
+        <label for="partnerTwo">Second Partner's Full Name</label>
+        <input id="partnerTwo" type="text" placeholder="Enter second partner's name">
+
+        <label for="marriageDate">Date of Marriage</label>
+        <input id="marriageDate" type="date">
+
+        <label for="marriageVenue">Venue of Marriage</label>
+        <input id="marriageVenue" type="text" placeholder="Enter venue">
+
+        <label for="witnessOne">First Witness</label>
+        <input id="witnessOne" type="text" placeholder="First witness's name">
+
+        <label for="witnessTwo">Second Witness</label>
+        <input id="witnessTwo" type="text" placeholder="Second witness's name">
+
+        <label for="officiant">Officiant / Celebrant</label>
+        <input id="officiant" type="text" placeholder="Enter name">
+      </div>
+
+      <button type="button" id="updateBtn">Update Preview</button>
       <button type="button" id="downloadBtn" class="download">
-        Download Sample Card
+        Download PNG
       </button>
     </section>
 
     <section class="preview-section">
       <h2>Live Preview</h2>
 
-      <div class="id-card blue" id="idCard">
+      <div id="idCard" class="document blue">
         <div class="watermark">SAMPLE</div>
 
-        <div class="card-header">
-          <div class="logo">ID</div>
-          <div>
-            <h3 id="cardTitle">PERSONAL ID CARD</h3>
-            <p>PERSONAL IDENTIFICATION</p>
+        <div id="idDocument">
+          <div class="card-header">
+            <div class="logo">ID</div>
+            <div>
+              <h3 id="cardTitle">PERSONAL ID CARD</h3>
+              <p>PERSONAL IDENTIFICATION</p>
+            </div>
+          </div>
+
+          <div class="card-content">
+            <img id="previewPhoto" alt="Uploaded portrait" hidden>
+
+            <div class="details">
+              <h2 id="previewName"></h2>
+              <p><strong>Date of Birth:</strong> <span id="previewDob"></span></p>
+              <p><strong>Nationality:</strong> <span id="previewNationality"></span></p>
+              <p><strong>Reference:</strong> <span id="previewNumber"></span></p>
+              <p><strong>Organization:</strong> <span id="previewOrg"></span></p>
+            </div>
           </div>
         </div>
 
-        <div class="card-content">
-          <img id="previewPhoto"
-            alt="Uploaded portrait"
-            hidden>
+        <div id="marriageDocument" hidden>
+          <div class="certificate-inner">
+            <p class="certificate-label">COMMEMORATIVE KEEPSAKE</p>
+            <h2>Marriage Certificate</h2>
+            <div class="ornament">❦</div>
+            <p class="certificate-intro">Celebrating the union of</p>
 
-          <div class="details">
-            <h2 id="previewName">Matthew Orieme</h2>
+            <h3 id="previewPartnerOne">Partner One</h3>
+            <p class="and">&amp;</p>
+            <h3 id="previewPartnerTwo">Partner Two</h3>
 
-            <p><strong>Date of Birth:</strong>
-              <span id="previewDob">16 Nov 1985</span>
+            <p class="certificate-intro">
+              Celebrated on <span id="previewMarriageDate"></span>
+            </p>
+            <p><strong>Venue:</strong> <span id="previewVenue"></span></p>
+
+            <div class="witnesses">
+              <div>
+                <span id="previewWitnessOne"></span>
+                <hr>
+                <small>Witness One</small>
+              </div>
+              <div>
+                <span id="previewWitnessTwo"></span>
+                <hr>
+                <small>Witness Two</small>
+              </div>
+            </div>
+
+            <p class="officiant">
+              Celebrant: <span id="previewOfficiant"></span>
             </p>
 
-            <p><strong>Nationality:</strong>
-              <span id="previewNationality">Not specified</span>
-            </p>
-
-            <p><strong>Reference:</strong>
-              <span id="previewNumber">SAMPLE-001</span>
-            </p>
-
-            <p><strong>Organization:</strong>
-              <span id="previewOrg">Not specified</span>
+            <p class="certificate-disclaimer">
+              COMMEMORATIVE SAMPLE — NOT A LEGAL MARRIAGE RECORD
             </p>
           </div>
         </div>
 
-        <div class="card-footer">PERSONAL SAMPLE CARD</div>
+        <div class="card-footer" id="cardFooter">
+          PERSONAL SAMPLE CARD
+        </div>
       </div>
 
       <p class="note">
-        This card is a fictional design for personal experimentation.
-        It is not a government-issued or official identification document.
+        For creative and personal experimentation. ID designs and marriage
+        certificates generated here are samples, not official documents.
       </p>
     </section>
   </main>
