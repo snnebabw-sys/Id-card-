@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ID Card Generator</title>
+  <title>ID Card Studio</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
   <header>
     <h1>🪪 ID Card Studio</h1>
-    <p>Create and customize sample ID cards</p>
+    <p>Create and customize fictional sample ID cards</p>
   </header>
 
   <main>
@@ -29,26 +29,25 @@
 
       <label for="fullName">Full Name</label>
       <input id="fullName" type="text"
-             placeholder="Enter full name" value="Matthew Orieme">
+        placeholder="Enter full name" value="Matthew Orieme">
 
       <label for="dob">Date of Birth</label>
       <input id="dob" type="date" value="1985-11-16">
 
       <label for="nationality">Nationality</label>
       <input id="nationality" type="text"
-             placeholder="Enter nationality">
+        placeholder="Enter nationality">
 
-      <label for="idNumber">Personal Reference Number</label>
+      <label for="idNumber">Reference Number</label>
       <input id="idNumber" type="text"
-             placeholder="e.g. SAMPLE-001">
+        placeholder="e.g. SAMPLE-001">
 
       <label for="organization">Organization / School</label>
       <input id="organization" type="text"
-             placeholder="Optional">
+        placeholder="Optional">
 
       <label for="photo">Upload Photo</label>
-      <input id="photo" type="file"
-             accept="image/*">
+      <input id="photo" type="file" accept="image/*">
 
       <label for="theme">Card Colour</label>
       <select id="theme">
@@ -58,8 +57,8 @@
         <option value="black">Midnight Black</option>
       </select>
 
-      <button id="updateBtn">Update Card</button>
-      <button id="downloadBtn" class="download">
+      <button type="button" id="updateBtn">Update Card</button>
+      <button type="button" id="downloadBtn" class="download">
         Download Sample Card
       </button>
     </section>
@@ -74,41 +73,42 @@
           <div class="logo">ID</div>
           <div>
             <h3 id="cardTitle">PERSONAL ID CARD</h3>
-            <p>EXPERIMENTAL DESIGN</p>
+            <p>PERSONAL IDENTIFICATION</p>
           </div>
         </div>
 
         <div class="card-content">
           <img id="previewPhoto"
-               src=""
-               alt="Your uploaded photo">
+            alt="Uploaded portrait"
+            hidden>
 
           <div class="details">
             <h2 id="previewName">Matthew Orieme</h2>
+
             <p><strong>Date of Birth:</strong>
               <span id="previewDob">16 Nov 1985</span>
             </p>
+
             <p><strong>Nationality:</strong>
               <span id="previewNationality">Not specified</span>
             </p>
+
             <p><strong>Reference:</strong>
               <span id="previewNumber">SAMPLE-001</span>
             </p>
+
             <p><strong>Organization:</strong>
               <span id="previewOrg">Not specified</span>
             </p>
           </div>
         </div>
 
-        <div class="card-footer">
-          SAMPLE — NOT AN OFFICIAL DOCUMENT
-        </div>
+        <div class="card-footer">PERSONAL SAMPLE CARD</div>
       </div>
 
       <p class="note">
-        This is a fictional sample card for design and
-        experimentation. It is not valid for identification,
-        immigration, banking or official verification.
+        This card is a fictional design for personal experimentation.
+        It is not a government-issued or official identification document.
       </p>
     </section>
   </main>
