@@ -13,19 +13,18 @@ body {
 
 header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 header h1 {
-  margin-bottom: 8px;
   color: #123e73;
 }
 
 main {
   display: grid;
   grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
-  gap: 30px;
-  max-width: 1150px;
+  gap: 25px;
+  max-width: 1200px;
   margin: auto;
   align-items: start;
 }
@@ -39,11 +38,6 @@ main {
   min-width: 0;
 }
 
-.editor h2,
-.preview-section h2 {
-  margin-top: 0;
-}
-
 label {
   display: block;
   font-weight: bold;
@@ -52,7 +46,6 @@ label {
 
 input,
 select {
-  display: block;
   width: 100%;
   min-height: 43px;
   padding: 10px;
@@ -63,7 +56,6 @@ select {
 }
 
 input[type="file"] {
-  padding: 8px;
   font-size: 13px;
 }
 
@@ -71,7 +63,7 @@ button {
   width: 100%;
   padding: 13px;
   margin-top: 18px;
-  border: none;
+  border: 0;
   border-radius: 7px;
   background: #155eaa;
   color: white;
@@ -80,142 +72,262 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  opacity: 0.9;
-}
-
 button.download {
   background: #087b57;
   margin-top: 10px;
 }
 
-.preview-section {
-  overflow: hidden;
+button:hover {
+  opacity: 0.9;
 }
 
-.id-card {
+[hidden] {
+  display: none !important;
+}
+
+.document {
   position: relative;
   width: 100%;
-  max-width: 580px;
+  max-width: 680px;
   aspect-ratio: 1000 / 630;
   margin: 15px auto;
   padding: 4%;
-  border-radius: 15px;
-  color: white;
+  border-radius: 14px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: white;
   box-shadow: 0 8px 24px #00000026;
 }
 
-.id-card.blue {
+.document.blue {
   background: linear-gradient(135deg, #123e73, #277fbd);
 }
 
-.id-card.green {
+.document.green {
   background: linear-gradient(135deg, #075c43, #21a77b);
 }
 
-.id-card.purple {
+.document.purple {
   background: linear-gradient(135deg, #48216f, #9470c9);
 }
 
-.id-card.black {
+.document.black {
   background: linear-gradient(135deg, #151a24, #485262);
 }
 
 .watermark {
   position: absolute;
-  top: 42%;
-  left: 15%;
+  top: 40%;
+  left: 12%;
   transform: rotate(-25deg);
-  font-size: clamp(40px, 9vw, 95px);
+  color: #ffffff20;
+  font-size: clamp(45px, 9vw, 100px);
   font-weight: bold;
-  color: #ffffff1c;
   pointer-events: none;
+}
+
+.card-header,
+.card-content {
+  position: relative;
+  z-index: 1;
 }
 
 .card-header {
   display: flex;
   align-items: center;
   gap: 14px;
-  z-index: 1;
 }
 
 .logo {
   width: 48px;
   height: 48px;
-  min-width: 48px;
   display: grid;
   place-items: center;
-  border: 2px solid #ffffffbd;
+  border: 2px solid white;
   border-radius: 9px;
-  font-size: 22px;
   font-weight: bold;
 }
 
 .card-header h3 {
+  margin: 0 0 5px;
   font-size: clamp(11px, 2vw, 20px);
-  margin: 0 0 6px;
 }
 
 .card-header p {
-  font-size: clamp(8px, 1.5vw, 13px);
   margin: 0;
-  letter-spacing: 1px;
+  font-size: clamp(8px, 1.4vw, 13px);
 }
 
 .card-content {
   display: flex;
   gap: 5%;
   align-items: center;
-  z-index: 1;
-  min-height: 0;
 }
 
 #previewPhoto {
   width: 27%;
-  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border: 2px solid #ffffffbd;
-  border-radius: 6px;
-  background: #d9e2ec;
+  border: 2px solid white;
+  border-radius: 5px;
 }
 
 .details {
-  min-width: 0;
   flex: 1;
+  min-width: 0;
   overflow-wrap: anywhere;
 }
 
 .details h2 {
   font-size: clamp(13px, 2.5vw, 25px);
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 
 .details p {
-  font-size: clamp(8px, 1.45vw, 14px);
+  font-size: clamp(8px, 1.5vw, 14px);
   line-height: 1.5;
   margin: 5px 0;
 }
 
 .card-footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   margin: 0 -4.5% -4.5%;
   padding: 12px 5%;
   background: #061a35;
   text-align: center;
+  font-size: clamp(8px, 1.4vw, 13px);
   font-weight: bold;
-  font-size: clamp(8px, 1.5vw, 13px);
+  letter-spacing: 1px;
+}
+
+/* Marriage certificate design */
+
+.document.marriage {
+  aspect-ratio: 1.414 / 1;
+  min-height: 390px;
+  padding: 12px;
+  border-radius: 4px;
+  background: #f8f1df;
+  color: #49351d;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.document.marriage .watermark {
+  top: 42%;
+  left: 12%;
+  color: #9a7a3a18;
+  font-family: Arial, sans-serif;
+  font-size: clamp(35px, 7vw, 78px);
+}
+
+.certificate-inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  border: 3px double #ad8b4b;
+  outline: 1px solid #ad8b4b;
+  outline-offset: -8px;
+  padding: 18px 22px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.certificate-label {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #85682f;
+}
+
+.certificate-inner h2 {
+  margin: 8px 0;
+  color: #72521c;
+  font-size: clamp(23px, 4vw, 38px);
+}
+
+.ornament {
+  color: #ad8b4b;
+  font-size: 24px;
+}
+
+.certificate-intro {
+  font-size: clamp(10px, 1.6vw, 15px);
+  margin: 8px 0;
+}
+
+.certificate-inner h3 {
+  margin: 6px 0;
+  color: #513b1e;
+  font-size: clamp(15px, 2.7vw, 25px);
+  overflow-wrap: anywhere;
+}
+
+.certificate-inner .and {
+  margin: 0;
+  color: #ad8b4b;
+  font-size: 18px;
+  font-style: italic;
+}
+
+.certificate-inner > p {
+  overflow-wrap: anywhere;
+}
+
+.witnesses {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin: 18px auto 8px;
+  max-width: 450px;
+  font-size: 11px;
+}
+
+.witnesses > div {
+  width: 45%;
+  overflow-wrap: anywhere;
+}
+
+.witnesses hr {
+  border: 0;
+  border-top: 1px solid #ad8b4b;
+  margin: 7px 0 4px;
+}
+
+.witnesses small {
+  font-size: 9px;
+}
+
+.officiant {
+  font-size: 11px;
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+.certificate-disclaimer {
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #765c2a;
+}
+
+.document.marriage .card-footer {
+  margin: 0;
+  padding: 8px;
+  background: #e8dcc0;
+  color: #654b20;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
   letter-spacing: 1px;
 }
 
 .note {
-  max-width: 580px;
-  margin: 18px auto 0;
+  max-width: 680px;
+  margin: 18px auto;
   color: #64748b;
   font-size: 13px;
   line-height: 1.6;
@@ -228,19 +340,18 @@ button.download {
 
   main {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
   .editor,
   .preview-section {
-    padding: 16px;
+    padding: 15px;
   }
 
-  .id-card {
-    padding: 4%;
+  .document.marriage {
+    min-height: 350px;
   }
 
-  .card-footer {
-    margin-bottom: -4.5%;
+  .certificate-inner {
+    padding: 14px 16px;
   }
 }
